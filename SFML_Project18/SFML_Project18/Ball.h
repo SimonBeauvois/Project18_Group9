@@ -15,5 +15,6 @@ public:
 
 private:
 	float _radius;
+	bool _isOut = true;
 };
 

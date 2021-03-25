@@ -1,4 +1,5 @@
 #include "Ball.h"
+#include <math.h>
 #include "Utils.h"
 
 Ball::Ball(float radius) {
@@ -37,32 +38,64 @@ void Ball::CheckCollisionWithEntity(Entity* entity)
 	sf::FloatRect currentBox = _shape->getGlobalBounds();
 	sf::FloatRect otherBox = otherShape->getGlobalBounds();
 
-	float boxRight = currentBox.left + currentBox.width;
-	float boxLeft = currentBox.left;
-	float boxTop = currentBox.top;
-	float boxBot = currentBox.top + currentBox.height;
+	float circleXmin = currentBox.left;
+	float circleXmax = currentBox.left + currentBox.width;
+	float circleYmin = currentBox.top;
+	float circleYmax = currentBox.top + currentBox.height;
 
-	float otherBoxRight = currentBox.left + currentBox.width;
-	float otherBoxLeft = currentBox.left;
-	float otherBoxTop = currentBox.top;
-	float otherBoxBot = currentBox.top + currentBox.height;
+	float otherXmin = otherBox.left;
+	float otherXax = otherBox.left + otherBox.width;
+	float otherYmin = otherBox.top;
+	float otherYmax = otherBox.top + otherBox.height;
+
+	if (currentBox.intersects(otherBox) && _isOut) {
+
+		std::string min;
 
 
-	if (currentBox.intersects(otherBox)) {
+		// Check top
+		float distTop = abs(otherBox.top + otherBox.height - currentBox.top);
+		float minDist = distTop;
+		min = "top";
 
-		if ((boxLeft <= otherBoxRight) && (boxRight >= otherBoxLeft)) {
-			_vX *= -1;
-			ChangeColor();
+		// Check bot
+		float distBot = abs(currentBox.top + currentBox.height - otherBox.top );
+		if (distBot < minDist) {
+			minDist = distBot;
+			min = "bot";
 		}
 
-		if ((boxTop <= otherBoxBot) && (otherBoxBot >= otherBoxTop)) {
+		// Check left
+		float distLeft = abs(otherBox.left + otherBox.width - currentBox.left );
+		if (distLeft < minDist) {
+			minDist = distLeft;
+			min = "left";
+		}
+
+		// Check right
+		float distRight = abs(currentBox.left + currentBox.width  - otherBox.left);
+		if (distRight < minDist) {
+			minDist = distRight;
+			min = "right";
+		}
+
+		if (min == "top" || min == "bot") {
 			_vY *= -1;
 			ChangeColor();
 		}
 
-		
+		if (min == "left" || min == "right") {
+			_vX *= -1;
+			ChangeColor();
+		}
+
+		_isOut = false;
+
 	}
-	
+
+	if(!currentBox.intersects(otherBox)){
+		_isOut = true;
+	}
 }
 
 

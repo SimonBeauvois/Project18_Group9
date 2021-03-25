@@ -24,6 +24,6 @@ protected :
 	sf::Shape* _shape = nullptr;
 	float _vX = 0;
 	float _vY = 0;
-	float _moveSpeed = 700;
+	float _moveSpeed = 2400;
 };
 
