@@ -11,7 +11,7 @@ public:
 
 	void CheckCollisionWithScreen();
 
-	void CheckCollisionWithEntity(Entity* entity);
+	bool CheckCollisionWithEntity(Entity* entity);
 
 private:
 	float _radius;

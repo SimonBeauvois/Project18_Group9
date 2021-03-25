@@ -31,7 +31,7 @@ void Ball::CheckCollisionWithScreen() {
 	}
 }
 
-void Ball::CheckCollisionWithEntity(Entity* entity)
+bool Ball::CheckCollisionWithEntity(Entity* entity)
 {
 	sf::Shape* otherShape = entity->GetShape();
 
@@ -48,7 +48,7 @@ void Ball::CheckCollisionWithEntity(Entity* entity)
 	float otherYmin = otherBox.top;
 	float otherYmax = otherBox.top + otherBox.height;
 
-	if (currentBox.intersects(otherBox) && _isOut) {
+	if (currentBox.intersects(otherBox)) {
 
 		std::string min;
 
@@ -79,23 +79,35 @@ void Ball::CheckCollisionWithEntity(Entity* entity)
 			min = "right";
 		}
 
-		if (min == "top" || min == "bot") {
-			_vY *= -1;
-			ChangeColor();
+		if (min == "top") {
+			if (_vY < 0) {
+				_vY *= -1;
+				ChangeColor();
+			}
+		} 
+		if( min == "bot") {
+			if (_vY > 0) {
+				_vY *= -1;
+				ChangeColor();
+			}
 		}
 
-		if (min == "left" || min == "right") {
-			_vX *= -1;
-			ChangeColor();
+		if (min == "left") {
+			if (_vX < 0) {
+				_vX *= -1;
+				ChangeColor();
+			}
+		}
+		if( min == "right") {
+			if (_vX > 0) {
+				_vX *= -1;
+				ChangeColor();
+			}
 		}
 
-		_isOut = false;
-
+		return true;
 	}
-
-	if(!currentBox.intersects(otherBox)){
-		_isOut = true;
-	}
+	return false;
 }
 
 

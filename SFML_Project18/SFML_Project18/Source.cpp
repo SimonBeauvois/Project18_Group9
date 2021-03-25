@@ -1,14 +1,17 @@
+using namespace std;
 #include <SFML/Graphics.hpp>
 #include "Utils.h"
 #include "Ball.h"
 #include "math.h"
 #include "Brick.h"
+#include <list>
 
 
 void main() {
 
 	sf::RenderWindow window(sf::VideoMode(Utils::ScreenWidth(), Utils::ScreenHeight()), "MyWindow");
 
+	bool hasCollided = false;
 
 	sf::Clock clock;
 	
@@ -19,26 +22,25 @@ void main() {
 
 	ball->SetPosition(sf::Vector2f(0.5, 0.8));
 
-	Brick* brick = new Brick(120, 70);
+	Brick* brick = new Brick(120, 70,1);
 
 	brick->SetPosition(sf::Vector2f(0.5, 0.1));
 
-	Brick* brick2 = new Brick(120, 70);
+	Brick* brick2 = new Brick(120, 70,1);
 
 	brick2->SetPosition(sf::Vector2f(0.2, 0.25));
 
 	sf::Vector2i mousePos;
 	sf::Vector2f direction;
 
+
+	std::list<Brick*> listOfBricks;
+	listOfBricks.push_back(brick);
+	listOfBricks.push_back(brick2);
+
 	while (window.isOpen()) {
 		
 		float deltaTime = clock.restart().asSeconds();
-		
-		ball->Draw(window);
-		brick->Draw(window);
-		brick2->Draw(window);
-
-		window.display();
 		
 		sf::Event event;
 
@@ -57,11 +59,47 @@ void main() {
 			}
 		}
 
-		ball->CheckCollisionWithEntity(brick);
-		ball->CheckCollisionWithEntity(brick2);
+		for (std::list<Brick*>::iterator it = listOfBricks.begin(); it != listOfBricks.end(); ++it)
+		{
+			// Collide only if the ball has not collided with something yet
+			
+			if (!hasCollided && (*it)->GetLife() > 0) {
+
+				hasCollided = ball->CheckCollisionWithEntity(*it);
+
+				if (hasCollided) {
+
+					(*it)->TakeDamage();
+
+				}
+			}
+		}
+
+		
+		
+		if (hasCollided) {
+			hasCollided = false;
+		}
+
+
 		ball->Move(deltaTime);
 
 		window.clear();
+
+		ball->Draw(window);
+
+		for (std::list<Brick*>::iterator it = listOfBricks.begin(); it != listOfBricks.end(); ++it)
+		{
+			// Collide only if the ball has not collided with something yet
+
+			if ((*it)->GetLife() > 0) {
+
+				(*it)->Draw(window);
+			}
+		}
+
+		window.display();
+		
 	
 	}
 
