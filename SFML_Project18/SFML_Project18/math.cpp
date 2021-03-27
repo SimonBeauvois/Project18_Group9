@@ -15,3 +15,8 @@ float math::Distance(sf::Vector2f a, sf::Vector2f b)
 {
 	return sqrt((b.x-a.x)* (b.x - a.x) + (b.y - a.y) * (b.y - a.y));
 }
+
+float math::DotProduct(sf::Vector2f a , sf::Vector2f b)
+{
+	return (a.x * b.x) + (a.y * b.y);
+}

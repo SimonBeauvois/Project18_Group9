@@ -4,6 +4,7 @@ using namespace std;
 #include "Ball.h"
 #include "math.h"
 #include "Brick.h"
+#include "Canon.h"
 #include <list>
 
 
@@ -17,6 +18,8 @@ void main() {
 	
 	bool mouseIsClicked = false;
 	
+	Canon* canon = new Canon(10, 100);
+	canon->SetPosition(sf::Vector2f(0.5, 0.95));
 
 	Ball* ball = new Ball(12);
 
@@ -87,6 +90,7 @@ void main() {
 		window.clear();
 
 		ball->Draw(window);
+		canon->DrawCanon(window);
 
 		for (std::list<Brick*>::iterator it = listOfBricks.begin(); it != listOfBricks.end(); ++it)
 		{

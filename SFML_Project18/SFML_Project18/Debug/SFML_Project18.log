@@ -1,18 +1,18 @@
-﻿  Source.cpp
-C:\Github\Project18_Group9\SFML_Project18\SFML_Project18\Source.cpp(10,13): warning C4326: return type of 'main' should be 'int' instead of 'void'
-C:\Github\Project18_Group9\SFML_Project18\SFML_Project18\Source.cpp(23,41): warning C4305: 'argument': truncation from 'double' to 'T'
+﻿  Canon.cpp
+C:\Github\Project18_Group9\SFML_Project18\SFML_Project18\Canon.cpp(19,86): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
           with
           [
               T=float
           ]
-C:\Github\Project18_Group9\SFML_Project18\SFML_Project18\Source.cpp(27,42): warning C4305: 'argument': truncation from 'double' to 'T'
+C:\Github\Project18_Group9\SFML_Project18\SFML_Project18\Canon.cpp(19,63): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
           with
           [
               T=float
           ]
-C:\Github\Project18_Group9\SFML_Project18\SFML_Project18\Source.cpp(31,44): warning C4305: 'argument': truncation from 'double' to 'T'
+C:\Github\Project18_Group9\SFML_Project18\SFML_Project18\Canon.cpp(20,61): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
           with
           [
               T=float
           ]
+C:\Github\Project18_Group9\SFML_Project18\SFML_Project18\Canon.cpp(32,20): warning C4244: 'initialisation' : conversion de 'double' en 'float', perte possible de données
   SFML_Project18.vcxproj -> C:\Github\Project18_Group9\SFML_Project18\Debug\SFML_Project18.exe

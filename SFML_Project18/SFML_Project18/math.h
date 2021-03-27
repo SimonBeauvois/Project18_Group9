@@ -9,5 +9,7 @@ public:
 	static void Normalize(sf::Vector2f&);
 
 	static float Distance(sf::Vector2f, sf::Vector2f);
+
+	static float DotProduct(sf::Vector2f, sf::Vector2f);
 };
 
