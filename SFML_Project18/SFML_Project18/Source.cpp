@@ -5,6 +5,7 @@ using namespace std;
 #include "math.h"
 #include "Brick.h"
 #include "Canon.h"
+#include "SpawnerBricks.h"
 #include <list>
 
 
@@ -37,9 +38,8 @@ void main() {
 	sf::Vector2f direction;
 
 
-	std::list<Brick*> listOfBricks;
-	listOfBricks.push_back(brick);
-	listOfBricks.push_back(brick2);
+	std::list<Brick*> listOfBricks = SpawnerBricks::SpawningBricks(3, 50, 40, 40);
+	
 
 	while (window.isOpen()) {
 		
@@ -94,7 +94,7 @@ void main() {
 
 		for (std::list<Brick*>::iterator it = listOfBricks.begin(); it != listOfBricks.end(); ++it)
 		{
-			// Collide only if the ball has not collided with something yet
+			
 
 			if ((*it)->GetLife() > 0) {
 
