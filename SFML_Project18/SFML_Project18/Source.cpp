@@ -62,23 +62,22 @@ void main() {
 			}
 		}
 
-		for (std::list<Brick*>::iterator it = listOfBricks.begin(); it != listOfBricks.end(); ++it)
+
+		
+		for (std::list<Brick*>::iterator it = listOfBricks.begin(); it != listOfBricks.end(); it++)
 		{
-			// Collide only if the ball has not collided with something yet
-			
-			if (!hasCollided && (*it)->GetLife() > 0) {
+			if (ball->CheckCollisionWithEntity(*it) && (*it)->GetLife() > 0) {
 
-				hasCollided = ball->CheckCollisionWithEntity(*it);
+				if ((*it)->TakeDamage() < 1) {
 
-				if (hasCollided) {
-
-					(*it)->TakeDamage();
-
+					// Destroy the brick
+					listOfBricks.erase(it);
+					
 				}
+				break;
 			}
 		}
 
-		
 		
 		if (hasCollided) {
 			hasCollided = false;
