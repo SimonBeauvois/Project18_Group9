@@ -1,4 +1,4 @@
-using namespace std;
+
 #include <SFML/Graphics.hpp>
 #include "Utils.h"
 #include "Ball.h"
@@ -7,6 +7,7 @@ using namespace std;
 #include "Canon.h"
 #include "SpawnerBricks.h"
 #include <list>
+using namespace std;
 
 
 void main() {
@@ -31,9 +32,10 @@ void main() {
 	Canon* canon = new Canon("canon.png");
 	//canon->setPosition(sf::Vector2f(0.5, 0.95));
 
-	std::list<Brick*> listOfBricks = SpawnerBricks::SpawningBricks(3, 50, 40, 100);
+	//std::list<Brick*> listOfBricks = SpawnerBricks::SpawningBricks(3, 50, 40, 100);
+	std::vector<std::vector<char>> arrayOfChara = { {'X','X','X'} , {'X','X','X'} , {'X','X','X'} };
+	std::list<Brick*> listOfBricks = SpawnerBricks::SpawningCustomBircks(arrayOfChara, 3, 3, 40);
 	
-
 	while (window.isOpen()) {
 		
 		float deltaTime = clock.restart().asSeconds();
