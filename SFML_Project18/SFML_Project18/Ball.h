@@ -23,6 +23,6 @@ private:
 
     float _vX = 0;
     float _vY = 0;
-    float _moveSpeed = 1500;
+    float _moveSpeed = 750;
 };
 

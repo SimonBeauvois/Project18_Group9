@@ -1,8 +1,25 @@
-﻿  Source.cpp
+﻿  Ball.cpp
+  Source.cpp
 C:\COURS_MODULES\MODULE_14_C++\projet\Project18_Group9\SFML_Project18\SFML_Project18\Source.cpp(13,13): warning C4326: return type of 'main' should be 'int' instead of 'void'
-C:\COURS_MODULES\MODULE_14_C++\projet\Project18_Group9\SFML_Project18\SFML_Project18\Source.cpp(27,41): warning C4305: 'argument': truncation from 'double' to 'T'
+C:\COURS_MODULES\MODULE_14_C++\projet\Project18_Group9\SFML_Project18\SFML_Project18\Source.cpp(25,74): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
           with
           [
               T=float
           ]
+C:\COURS_MODULES\MODULE_14_C++\projet\Project18_Group9\SFML_Project18\SFML_Project18\Source.cpp(25,50): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\COURS_MODULES\MODULE_14_C++\projet\Project18_Group9\SFML_Project18\SFML_Project18\Source.cpp(82,74): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\COURS_MODULES\MODULE_14_C++\projet\Project18_Group9\SFML_Project18\SFML_Project18\Source.cpp(82,51): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+  Generating Code...
   SFML_Project18.vcxproj -> C:\COURS_MODULES\MODULE_14_C++\projet\Project18_Group9\SFML_Project18\Debug\SFML_Project18.exe
