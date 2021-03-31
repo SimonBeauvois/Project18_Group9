@@ -13,20 +13,20 @@ Platform::Platform(float largeur, float longueur, float speedP)
     _shape->setPosition(Utils::ScreenWidth() / 2, Utils::ScreenHeight() - (longueur / 2));
 }
 
-void Platform::move(float deltaTime)
-{
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Q))
-    {
-        _vX = -1;
-    }
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
-    {
-        _vX = 1;
-    }
-
-    _shape->move(sf::Vector2f(_vX, 0) * speed * deltaTime);
-}
-
-void Platform::checkCollisionScreen()
-{
-}
+//void Platform::move(float deltaTime)
+//{
+//    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Q))
+//    {
+//        _vX = -1;
+//    }
+//    if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
+//    {
+//        _vX = 1;
+//    }
+//
+//    _shape->move(sf::Vector2f(_vX, 0) * speed * deltaTime);
+//}
+//
+//void Platform::checkCollisionScreen()
+//{
+//}

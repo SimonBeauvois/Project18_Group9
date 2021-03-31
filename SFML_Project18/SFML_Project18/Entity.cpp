@@ -12,12 +12,6 @@ void Entity::SetPosition(sf::Vector2f coeffs)
 
 
 
-void Entity::Launch(sf::Vector2f vect)
-{
-	_vX = vect.x;
-	_vY = vect.y;
-}
-
 void Entity::Draw(sf::RenderWindow& window)
 {
 	window.draw(*_shape);
