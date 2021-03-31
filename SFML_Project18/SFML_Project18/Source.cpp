@@ -20,16 +20,12 @@ void main() {
 	bool mouseIsClicked = false;
 	
 	
-
 	Ball* ball = new Ball(12);
-
-	ball->SetPosition(sf::Vector2f(0.5, 0.8));
-
+	ball->SetBall(sf::Vector2f(Utils::ScreenWidth() / 2, Utils::ScreenHeight()));
 	sf::Vector2i mousePos;
 	sf::Vector2f direction;
 
 	Canon* canon = new Canon("canon.png");
-	//canon->setPosition(sf::Vector2f(0.5, 0.95));
 
 	std::list<Brick*> listOfBricks = SpawnerBricks::SpawningBricks(3, 50, 40, 100);
 	
@@ -78,6 +74,12 @@ void main() {
 
 
 		ball->Move(deltaTime);
+
+		if (ball->CheckCollisionWithScreen()) {
+
+			ball->SetBall(sf::Vector2f(Utils::ScreenWidth()/2, Utils::ScreenHeight()));
+			mouseIsClicked = false;
+		}
 
 		window.clear();
 

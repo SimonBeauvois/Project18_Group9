@@ -6,29 +6,47 @@ Ball::Ball(float radius) {
 
 	_radius = radius;
 	_shape = new sf::CircleShape(_radius);
+
+	float diameter = _shape->getLocalBounds().width;
+
+	_shape->setOrigin(sf::Vector2f(diameter / 2, 0));
 }
 
-void Ball::CheckCollisionWithScreen() {
+
+void Ball::Launch(sf::Vector2f vect)
+{
+	_vX = vect.x;
+	_vY = vect.y;
+}
+
+bool Ball::CheckCollisionWithScreen() {
 
 	sf::FloatRect currentBox = _shape->getGlobalBounds();
 
+	// Left
 	if (currentBox.left + _vX < 0) {
 		_vX *= -1;
 		ChangeColor();
 	}
 
+	// Top
 	if (currentBox.top + _vY < 0) {
 		_vY *= -1;
 		ChangeColor();
 	}
+
+	// Right
 	if (currentBox.left + currentBox.width + _vX > Utils::ScreenWidth()) {
 		_vX *= -1;
 		ChangeColor();
 	}
-	if (currentBox.top + currentBox.height + _vY > Utils::ScreenHeight()) {
-		_vY *= -1;
-		ChangeColor();
+
+	// Bottom
+	if (currentBox.top + _vY > Utils::ScreenHeight()) {
+		return true;
 	}
+
+	return false;
 }
 
 bool Ball::CheckCollisionWithEntity(Entity* entity)
@@ -59,21 +77,21 @@ bool Ball::CheckCollisionWithEntity(Entity* entity)
 		min = "top";
 
 		// Check bot
-		float distBot = abs(currentBox.top + currentBox.height - otherBox.top );
+		float distBot = abs(currentBox.top + currentBox.height - otherBox.top);
 		if (distBot < minDist) {
 			minDist = distBot;
 			min = "bot";
 		}
 
 		// Check left
-		float distLeft = abs(otherBox.left + otherBox.width - currentBox.left );
+		float distLeft = abs(otherBox.left + otherBox.width - currentBox.left);
 		if (distLeft < minDist) {
 			minDist = distLeft;
 			min = "left";
 		}
 
 		// Check right
-		float distRight = abs(currentBox.left + currentBox.width  - otherBox.left);
+		float distRight = abs(currentBox.left + currentBox.width - otherBox.left);
 		if (distRight < minDist) {
 			minDist = distRight;
 			min = "right";
@@ -84,8 +102,8 @@ bool Ball::CheckCollisionWithEntity(Entity* entity)
 				_vY *= -1;
 				ChangeColor();
 			}
-		} 
-		if( min == "bot") {
+		}
+		if (min == "bot") {
 			if (_vY > 0) {
 				_vY *= -1;
 				ChangeColor();
@@ -98,7 +116,7 @@ bool Ball::CheckCollisionWithEntity(Entity* entity)
 				ChangeColor();
 			}
 		}
-		if( min == "right") {
+		if (min == "right") {
 			if (_vX > 0) {
 				_vX *= -1;
 				ChangeColor();
@@ -113,8 +131,16 @@ bool Ball::CheckCollisionWithEntity(Entity* entity)
 
 void Ball::Move(float deltaTime)
 {
-	CheckCollisionWithScreen();
 
 	_shape->move(sf::Vector2f(_vX, _vY) * _moveSpeed * deltaTime);
 
+}
+
+
+void Ball::SetBall(sf::Vector2f pos) {
+
+	_shape->setPosition(pos);
+
+	_vX = 0;
+	_vY = 0;
 }
