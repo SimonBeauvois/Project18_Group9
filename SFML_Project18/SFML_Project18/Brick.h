@@ -4,7 +4,7 @@
 class Brick : public Entity
 {
 public:
-	Brick(float width, float height, int life);
+	Brick(float width, float height, int life, std::string lienTexture, std::string lienTexture2);
 
 	~Brick();
 
@@ -12,11 +12,16 @@ public:
 
 	int GetLife() { return _life; }
 
+	void updateTexture();
+
 private:
 
 	float _width;
 	float _height;
 
-	int _life = 1;
+	sf::Texture _texture;
+	sf::Texture _texture2;
+
+	int _life = 2;
 };
 

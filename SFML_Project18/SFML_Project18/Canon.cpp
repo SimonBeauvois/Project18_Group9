@@ -5,12 +5,22 @@
 #include <math.h>
 #include <iostream>
 
-Canon::Canon(float width, float height)
+Canon::Canon(std::string lienFichier)
 {
-	_width = width;
-	_height = height;
+	
+	sf::Texture texture;
 
-	_shape = new sf::RectangleShape(sf::Vector2f(_width, _height));
+	if (_texture.loadFromFile(lienFichier)) //si le lien est fonctionnel
+	{
+		_texture.setSmooth(true);
+		_sprite = new sf::Sprite(_texture);
+	}
+	float width = _sprite->getLocalBounds().width;
+	float height = _sprite->getLocalBounds().height;
+
+	_sprite->setScale(sf::Vector2f(0.5, 0.5));
+	_sprite->setOrigin(sf::Vector2f(width / 2, height / 2));
+	_sprite->setPosition(sf::Vector2f(Utils::ScreenWidth()/2, Utils::ScreenHeight() - 40));
 }
 
 void Canon::DrawCanon(sf::RenderWindow& window)
@@ -35,7 +45,9 @@ void Canon::DrawCanon(sf::RenderWindow& window)
 
 	else transform.rotate(rotateAngle, screenBottom);
 	 
-
-	window.draw(*_shape, transform);
-
+	//window.draw(*_sprite);
+	window.draw(*_sprite, transform);
 }
+
+
+

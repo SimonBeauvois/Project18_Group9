@@ -19,26 +19,19 @@ void main() {
 	
 	bool mouseIsClicked = false;
 	
-	Canon* canon = new Canon(10, 100);
-	canon->SetPosition(sf::Vector2f(0.5, 0.95));
+	
 
 	Ball* ball = new Ball(12);
 
 	ball->SetPosition(sf::Vector2f(0.5, 0.8));
 
-	Brick* brick = new Brick(120, 70,1);
-
-	brick->SetPosition(sf::Vector2f(0.5, 0.1));
-
-	Brick* brick2 = new Brick(120, 70,1);
-
-	brick2->SetPosition(sf::Vector2f(0.2, 0.25));
-
 	sf::Vector2i mousePos;
 	sf::Vector2f direction;
 
+	Canon* canon = new Canon("canon.png");
+	//canon->setPosition(sf::Vector2f(0.5, 0.95));
 
-	std::list<Brick*> listOfBricks = SpawnerBricks::SpawningBricks(3, 50, 40, 40);
+	std::list<Brick*> listOfBricks = SpawnerBricks::SpawningBricks(3, 50, 40, 100);
 	
 
 	while (window.isOpen()) {

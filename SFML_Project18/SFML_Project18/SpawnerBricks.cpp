@@ -25,7 +25,7 @@ std::list<Brick*> SpawnerBricks::SpawningBricks(float nbLigne, float widthBrick,
         for (size_t i = 0; i < nbBrickLigne; i++)
         {
             Brick* currentBrick;
-            currentBrick = new Brick(widthBrick, heightbrick, 1);
+            currentBrick = new Brick(widthBrick, heightbrick, 1, "brique_texture.jpg", "brique_texture2.jpg");
 
             //Set le point de pivot et la position
             Utils::SetOrigin(0.5, 0.5, currentBrick->GetShape());

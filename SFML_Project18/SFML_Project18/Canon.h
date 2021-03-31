@@ -1,18 +1,19 @@
 #pragma once
-#include "Entity.h"
+#include <SFML/Graphics.hpp>
 
-class Canon : public Entity
+class Canon 
 {
 public:
-	Canon(float, float);
+	Canon(std::string lienFichier);
 
 	void DrawCanon(sf::RenderWindow& window);
 
-
 private:
-	
 	float _width;
 	float _height;
+
+	sf::Texture _texture;
+	sf::Sprite *_sprite;
 
 };
 
