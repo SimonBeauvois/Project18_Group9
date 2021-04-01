@@ -1,37 +1,38 @@
-﻿  Brick.cpp
-  Source.cpp
-C:\COURS_MODULES\MODULE_14_C++\projet\Project18_Group9\SFML_Project18\SFML_Project18\Source.cpp(14,13): warning C4326: return type of 'main' should be 'int' instead of 'void'
-C:\COURS_MODULES\MODULE_14_C++\projet\Project18_Group9\SFML_Project18\SFML_Project18\Source.cpp(27,74): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+﻿  Source.cpp
+C:\COURS_MODULES\MODULE_14_C++\projet\Project18_Group9\SFML_Project18\SFML_Project18\Source.cpp(15,13): warning C4326: return type of 'main' should be 'int' instead of 'void'
+C:\COURS_MODULES\MODULE_14_C++\projet\Project18_Group9\SFML_Project18\SFML_Project18\Source.cpp(27,18): warning C4244: 'initializing': conversion from 'sf::Int32' to 'float', possible loss of data
+C:\COURS_MODULES\MODULE_14_C++\projet\Project18_Group9\SFML_Project18\SFML_Project18\Source.cpp(55,30): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\COURS_MODULES\MODULE_14_C++\projet\Project18_Group9\SFML_Project18\SFML_Project18\Source.cpp(80,100): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
           with
           [
               T=float
           ]
-C:\COURS_MODULES\MODULE_14_C++\projet\Project18_Group9\SFML_Project18\SFML_Project18\Source.cpp(27,50): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+C:\COURS_MODULES\MODULE_14_C++\projet\Project18_Group9\SFML_Project18\SFML_Project18\Source.cpp(80,76): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
           with
           [
               T=float
           ]
-C:\COURS_MODULES\MODULE_14_C++\projet\Project18_Group9\SFML_Project18\SFML_Project18\Source.cpp(48,30): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\COURS_MODULES\MODULE_14_C++\projet\Project18_Group9\SFML_Project18\SFML_Project18\Source.cpp(96,74): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+C:\COURS_MODULES\MODULE_14_C++\projet\Project18_Group9\SFML_Project18\SFML_Project18\Source.cpp(91,27): warning C4018: '<': signed/unsigned mismatch
+C:\COURS_MODULES\MODULE_14_C++\projet\Project18_Group9\SFML_Project18\SFML_Project18\Source.cpp(95,77): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
           with
           [
               T=float
           ]
-C:\COURS_MODULES\MODULE_14_C++\projet\Project18_Group9\SFML_Project18\SFML_Project18\Source.cpp(96,51): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+C:\COURS_MODULES\MODULE_14_C++\projet\Project18_Group9\SFML_Project18\SFML_Project18\Source.cpp(95,53): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
           with
           [
               T=float
           ]
-  SpawnerBricks.cpp
-C:\COURS_MODULES\MODULE_14_C++\projet\Project18_Group9\SFML_Project18\SFML_Project18\SpawnerBricks.cpp(13,22): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-C:\COURS_MODULES\MODULE_14_C++\projet\Project18_Group9\SFML_Project18\SFML_Project18\SpawnerBricks.cpp(25,30): warning C4018: '<': signed/unsigned mismatch
-C:\COURS_MODULES\MODULE_14_C++\projet\Project18_Group9\SFML_Project18\SFML_Project18\SpawnerBricks.cpp(50,24): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-C:\COURS_MODULES\MODULE_14_C++\projet\Project18_Group9\SFML_Project18\SFML_Project18\SpawnerBricks.cpp(51,24): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-C:\COURS_MODULES\MODULE_14_C++\projet\Project18_Group9\SFML_Project18\SFML_Project18\SpawnerBricks.cpp(52,21): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-C:\COURS_MODULES\MODULE_14_C++\projet\Project18_Group9\SFML_Project18\SFML_Project18\SpawnerBricks.cpp(53,21): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-C:\COURS_MODULES\MODULE_14_C++\projet\Project18_Group9\SFML_Project18\SFML_Project18\SpawnerBricks.cpp(55,23): warning C4018: '<': signed/unsigned mismatch
-C:\COURS_MODULES\MODULE_14_C++\projet\Project18_Group9\SFML_Project18\SFML_Project18\SpawnerBricks.cpp(57,27): warning C4018: '<': signed/unsigned mismatch
-C:\COURS_MODULES\MODULE_14_C++\projet\Project18_Group9\SFML_Project18\SFML_Project18\SpawnerBricks.cpp(76,21): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\COURS_MODULES\MODULE_14_C++\projet\Project18_Group9\SFML_Project18\SFML_Project18\SpawnerBricks.cpp(78,17): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-  Generating Code...
+C:\COURS_MODULES\MODULE_14_C++\projet\Project18_Group9\SFML_Project18\SFML_Project18\Source.cpp(98,51): warning C4244: '=': conversion from 'sf::Int32' to 'float', possible loss of data
+C:\COURS_MODULES\MODULE_14_C++\projet\Project18_Group9\SFML_Project18\SFML_Project18\Source.cpp(112,51): warning C4244: '=': conversion from 'sf::Int32' to 'float', possible loss of data
+C:\COURS_MODULES\MODULE_14_C++\projet\Project18_Group9\SFML_Project18\SFML_Project18\Source.cpp(157,82): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\COURS_MODULES\MODULE_14_C++\projet\Project18_Group9\SFML_Project18\SFML_Project18\Source.cpp(157,58): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
   SFML_Project18.vcxproj -> C:\COURS_MODULES\MODULE_14_C++\projet\Project18_Group9\SFML_Project18\Debug\SFML_Project18.exe

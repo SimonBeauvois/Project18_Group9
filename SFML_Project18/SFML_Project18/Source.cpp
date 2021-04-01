@@ -7,30 +7,37 @@
 #include "Canon.h"
 #include "SpawnerBricks.h"
 #include "TextureManager.h"
+#include "UIManager.h"
 #include <list>
 using namespace std;
 
 
 void main() {
 
+	int numberOfBalls = 5;
+	float ballSpawningRate = 50;
+
 	sf::RenderWindow window(sf::VideoMode(Utils::ScreenWidth(), Utils::ScreenHeight()), "MyWindow");
 
 	bool hasCollided = false;
 
 	sf::Clock clock;
+	sf::Clock ballClock;
 	
+	float ballTimer = ballClock.restart().asMilliseconds();
+
 	bool mouseIsClicked = false;
+	bool canEnter = false;
 	
 	TextureManager::loadTexture();
+
+	UIManager* UiManager = new UIManager();
 	
-	Ball* ball = new Ball(12);
-	ball->SetBall(sf::Vector2f(Utils::ScreenWidth() / 2, Utils::ScreenHeight()));
 	sf::Vector2i mousePos;
 	sf::Vector2f direction;
 
 	Canon* canon = new Canon("canon.png");
 
-	//std::list<Brick*> listOfBricks = SpawnerBricks::SpawningBricks(3, 50, 40, 100);
 	std::vector<std::vector<int>> arrayOfChara = 
 	{ 
 		{1,1,1,1,1,1} , 
@@ -48,6 +55,9 @@ void main() {
 	spriteFond.setScale(1.2, 1.2);
 	spriteFond.setTexture(TextureManager::_textureFond);
 
+	std::list<Ball*> listOfBalls;
+	int currentBallIndex = 0;
+
 	while (window.isOpen()) {
 		
 		float deltaTime = clock.restart().asSeconds();
@@ -56,30 +66,75 @@ void main() {
 
 		while (window.pollEvent(event)) {
 
+			if (event.type == sf::Event::Closed) {
+
+				window.close();
+
+			}
+
 			if (event.type == sf::Event::MouseButtonPressed && !mouseIsClicked) {
 
+				UiManager->increaseCompteurTir(1);
 				mousePos = sf::Mouse::getPosition(window);
 
-				direction = (sf::Vector2f)mousePos - ball->GetShape()->getPosition();
+				direction = (sf::Vector2f)mousePos - sf::Vector2f(Utils::ScreenWidth() / 2, Utils::ScreenHeight());
 				math::Normalize(direction);
 
 				mouseIsClicked = true;
-				ball->Launch(direction);
+				canEnter = true;
 			}
 		}
 
-
-		
-		for (std::list<Brick*>::iterator it = listOfBricks.begin(); it != listOfBricks.end(); it++)
+		// Initializes a burst of balls
+		if (mouseIsClicked && canEnter && ballClock.getElapsedTime().asMilliseconds() > ballSpawningRate)
 		{
-			if (ball->CheckCollisionWithEntity(*it) && (*it)->GetLife() > 0) {
+			if (listOfBalls.size() < numberOfBalls) {
 
-				if ((*it)->TakeDamage() < 1) {
+				Ball* ball = new Ball(12);
+				listOfBalls.push_back(ball);
+				ball->SetBall(sf::Vector2f(Utils::ScreenWidth() / 2, Utils::ScreenHeight()));
+				ball->Launch(direction);
 
-					// Destroy the brick
-					listOfBricks.erase(it);
+				ballTimer = ballClock.restart().asMilliseconds();
+
+				if (listOfBalls.size() == numberOfBalls) {
+					canEnter = false;
 				}
-				break;
+			}
+
+			else if (listOfBalls.size() == numberOfBalls) {
+
+				std::list<Ball*>::iterator currentBall = listOfBalls.begin();
+
+				advance(currentBall, currentBallIndex);
+				(*currentBall)->Launch(direction);
+
+				ballTimer = ballClock.restart().asMilliseconds();
+
+				if (currentBallIndex == listOfBalls.size() - 1) {
+					currentBallIndex = 0;
+					canEnter = false;
+				}
+				else currentBallIndex++;
+			}
+
+		}
+		
+		// Checks the collision from every balls
+		for (std::list<Ball*>::iterator ballIt = listOfBalls.begin(); ballIt != listOfBalls.end(); ballIt++)
+		{
+			for (std::list<Brick*>::iterator it = listOfBricks.begin(); it != listOfBricks.end(); it++)
+			{
+				if ((*ballIt)->CheckCollisionWithEntity(*it) && (*it)->GetLife() > 0) {
+
+					if ((*it)->TakeDamage() < 1) {
+
+						// Destroy the brick
+						listOfBricks.erase(it);
+
+					}
+					break;
+				}
 			}
 		}
 
@@ -89,29 +144,46 @@ void main() {
 		}
 
 
-		ball->Move(deltaTime);
+		int i = 0;
+		bool allBallsOutOfScreen = false;
+		// Computes the movement of the balls and the collisions with the screen
+		for (std::list<Ball*>::iterator ballIt = listOfBalls.begin(); ballIt != listOfBalls.end(); ballIt++)
+		{
+			(*ballIt)->Move(deltaTime);
+			allBallsOutOfScreen = (*ballIt)->CheckCollisionWithScreen();
 
-		if (ball->CheckCollisionWithScreen()) {
+			if ((*ballIt)->CheckCollisionWithScreen()) {
 
-			ball->SetBall(sf::Vector2f(Utils::ScreenWidth()/2, Utils::ScreenHeight()));
+				(*ballIt)->SetBall(sf::Vector2f(Utils::ScreenWidth() / 2, Utils::ScreenHeight()));
+
+			}
+			++i;
+		}
+
+		if (allBallsOutOfScreen) {
 			mouseIsClicked = false;
 		}
 
 		window.clear();
-
 		window.draw(spriteFond);
-		ball->Draw(window);
-		canon->DrawCanon(window);
+		
+
+		for (std::list<Ball*>::iterator ballIt = listOfBalls.begin(); ballIt != listOfBalls.end(); ballIt++)
+		{
+			(*ballIt)->Draw(window);
+		}
 
 		for (std::list<Brick*>::iterator it = listOfBricks.begin(); it != listOfBricks.end(); ++it)
 		{
-			
 
 			if ((*it)->GetLife() > 0) {
 
 				(*it)->Draw(window);
 			}
 		}
+
+		canon->DrawCanon(window);
+		window.draw(UiManager->getTextScore());
 
 		window.display();
 		
