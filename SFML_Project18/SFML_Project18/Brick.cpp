@@ -1,18 +1,13 @@
 #include "Brick.h"
 #include "TextureManager.h"
 
-Brick::Brick(float width, float height, int life) {
-	_width = width;
-	_height = height;
-	_life = life;
-	_shape = new sf::RectangleShape(sf::Vector2f(_width, _height));
+Brick::Brick(float width, float height, int life, bool bonusBrick) {
+    _width = width;
+    _height = height;
+    _life = life;
+    _shape = new sf::RectangleShape(sf::Vector2f(_width, _height));
+    _bonusBrick = bonusBrick;
 
-	//if (_texture.loadFromFile(lienTexture)&& _texture2.loadFromFile(lienTexture2)&& _texture3.loadFromFile(lienTexture3)) //si le lien est fonctionnel
-	//{
-	//	_texture.setSmooth(true);
-	//	_texture.setRepeated(true);
-	//	updateTexture();
-	//}
 	updateTexture();
 }
 
@@ -35,4 +30,5 @@ void Brick::updateTexture()
 	if (_life > 2) { _shape->setTexture(TextureManager::_texture); }
 	if (_life == 2) { _shape->setTexture(TextureManager::_texture2); }
 	if (_life == 1) { _shape->setTexture(TextureManager::_texture3); }
+    if (_bonusBrick) { _shape->setTexture(TextureManager::_textureBonus); }
 }

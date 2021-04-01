@@ -10,6 +10,8 @@ Ball::Ball(float radius) {
 	float diameter = _shape->getLocalBounds().width;
 
 	_shape->setOrigin(sf::Vector2f(diameter / 2, 0));
+
+	ChangeColor();
 }
 
 

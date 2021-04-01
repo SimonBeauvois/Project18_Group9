@@ -1,36 +1,36 @@
 ﻿  Source.cpp
-C:\COURS_MODULES\MODULE_14_C++\projet\Project18_Group9\SFML_Project18\SFML_Project18\Source.cpp(15,13): warning C4326: return type of 'main' should be 'int' instead of 'void'
-C:\COURS_MODULES\MODULE_14_C++\projet\Project18_Group9\SFML_Project18\SFML_Project18\Source.cpp(27,18): warning C4244: 'initializing': conversion from 'sf::Int32' to 'float', possible loss of data
-C:\COURS_MODULES\MODULE_14_C++\projet\Project18_Group9\SFML_Project18\SFML_Project18\Source.cpp(55,30): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\COURS_MODULES\MODULE_14_C++\projet\Project18_Group9\SFML_Project18\SFML_Project18\Source.cpp(80,100): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+C:\COURS_MODULES\MODULE_14_C++\projet\Project18_Group9\SFML_Project18\SFML_Project18\Source.cpp(16,13): warning C4326: return type of 'main' should be 'int' instead of 'void'
+C:\COURS_MODULES\MODULE_14_C++\projet\Project18_Group9\SFML_Project18\SFML_Project18\Source.cpp(28,18): warning C4244: 'initializing': conversion from 'sf::Int32' to 'float', possible loss of data
+C:\COURS_MODULES\MODULE_14_C++\projet\Project18_Group9\SFML_Project18\SFML_Project18\Source.cpp(58,30): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\COURS_MODULES\MODULE_14_C++\projet\Project18_Group9\SFML_Project18\SFML_Project18\Source.cpp(83,100): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
           with
           [
               T=float
           ]
-C:\COURS_MODULES\MODULE_14_C++\projet\Project18_Group9\SFML_Project18\SFML_Project18\Source.cpp(80,76): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+C:\COURS_MODULES\MODULE_14_C++\projet\Project18_Group9\SFML_Project18\SFML_Project18\Source.cpp(83,76): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
           with
           [
               T=float
           ]
-C:\COURS_MODULES\MODULE_14_C++\projet\Project18_Group9\SFML_Project18\SFML_Project18\Source.cpp(91,27): warning C4018: '<': signed/unsigned mismatch
-C:\COURS_MODULES\MODULE_14_C++\projet\Project18_Group9\SFML_Project18\SFML_Project18\Source.cpp(95,77): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+C:\COURS_MODULES\MODULE_14_C++\projet\Project18_Group9\SFML_Project18\SFML_Project18\Source.cpp(92,122): warning C4018: '<': signed/unsigned mismatch
+C:\COURS_MODULES\MODULE_14_C++\projet\Project18_Group9\SFML_Project18\SFML_Project18\Source.cpp(96,76): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
           with
           [
               T=float
           ]
-C:\COURS_MODULES\MODULE_14_C++\projet\Project18_Group9\SFML_Project18\SFML_Project18\Source.cpp(95,53): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+C:\COURS_MODULES\MODULE_14_C++\projet\Project18_Group9\SFML_Project18\SFML_Project18\Source.cpp(96,52): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
           with
           [
               T=float
           ]
-C:\COURS_MODULES\MODULE_14_C++\projet\Project18_Group9\SFML_Project18\SFML_Project18\Source.cpp(98,51): warning C4244: '=': conversion from 'sf::Int32' to 'float', possible loss of data
-C:\COURS_MODULES\MODULE_14_C++\projet\Project18_Group9\SFML_Project18\SFML_Project18\Source.cpp(112,51): warning C4244: '=': conversion from 'sf::Int32' to 'float', possible loss of data
-C:\COURS_MODULES\MODULE_14_C++\projet\Project18_Group9\SFML_Project18\SFML_Project18\Source.cpp(157,82): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+C:\COURS_MODULES\MODULE_14_C++\projet\Project18_Group9\SFML_Project18\SFML_Project18\Source.cpp(99,50): warning C4244: '=': conversion from 'sf::Int32' to 'float', possible loss of data
+C:\COURS_MODULES\MODULE_14_C++\projet\Project18_Group9\SFML_Project18\SFML_Project18\Source.cpp(112,50): warning C4244: '=': conversion from 'sf::Int32' to 'float', possible loss of data
+C:\COURS_MODULES\MODULE_14_C++\projet\Project18_Group9\SFML_Project18\SFML_Project18\Source.cpp(161,82): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
           with
           [
               T=float
           ]
-C:\COURS_MODULES\MODULE_14_C++\projet\Project18_Group9\SFML_Project18\SFML_Project18\Source.cpp(157,58): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+C:\COURS_MODULES\MODULE_14_C++\projet\Project18_Group9\SFML_Project18\SFML_Project18\Source.cpp(161,58): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
           with
           [
               T=float

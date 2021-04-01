@@ -8,14 +8,15 @@
 #include "SpawnerBricks.h"
 #include "TextureManager.h"
 #include "UIManager.h"
+#include "SoundManager.h"
 #include <list>
 using namespace std;
 
 
 void main() {
 
-	int numberOfBalls = 5;
-	float ballSpawningRate = 50;
+	int numberOfBalls = 1;
+	float ballSpawningRate = 200;
 
 	sf::RenderWindow window(sf::VideoMode(Utils::ScreenWidth(), Utils::ScreenHeight()), "MyWindow");
 
@@ -32,7 +33,9 @@ void main() {
 	TextureManager::loadTexture();
 
 	UIManager* UiManager = new UIManager();
-	
+	SoundManager* Soundmanager = new SoundManager();
+	Soundmanager->playMusic();
+
 	sf::Vector2i mousePos;
 	sf::Vector2f direction;
 
@@ -41,9 +44,9 @@ void main() {
 	std::vector<std::vector<int>> arrayOfChara = 
 	{ 
 		{1,1,1,1,1,1} , 
-		{1,2,2,2,2,1} , 
-		{1,2,3,3,2,1} , 
-		{1,2,3,3,2,1}, 
+		{-1,2,2,2,2,1} , 
+		{1,2,3,3,2,-1} , 
+		{1,2,-1,3,2,1}, 
 		{1,2,2,2,2,1}, 
 		{1,1,1,1,1,1} 
 	};
@@ -72,8 +75,8 @@ void main() {
 
 			}
 
-			if (event.type == sf::Event::MouseButtonPressed && !mouseIsClicked) {
-
+			if (event.type == sf::Event::MouseButtonPressed && !mouseIsClicked) 
+			{
 				UiManager->increaseCompteurTir(1);
 				mousePos = sf::Mouse::getPosition(window);
 
@@ -86,38 +89,33 @@ void main() {
 		}
 
 		// Initializes a burst of balls
-		if (mouseIsClicked && canEnter && ballClock.getElapsedTime().asMilliseconds() > ballSpawningRate)
+		if (mouseIsClicked && canEnter && ballClock.getElapsedTime().asMilliseconds() > ballSpawningRate && listOfBalls.size() < numberOfBalls)
 		{
-			if (listOfBalls.size() < numberOfBalls) {
+			Ball* ball = new Ball(12);
+			listOfBalls.push_back(ball);
+			ball->SetBall(sf::Vector2f(Utils::ScreenWidth() / 2, Utils::ScreenHeight()));
+			//ball->Launch(direction);
 
-				Ball* ball = new Ball(12);
-				listOfBalls.push_back(ball);
-				ball->SetBall(sf::Vector2f(Utils::ScreenWidth() / 2, Utils::ScreenHeight()));
-				ball->Launch(direction);
+			ballTimer = ballClock.restart().asMilliseconds();
 
-				ballTimer = ballClock.restart().asMilliseconds();
 
-				if (listOfBalls.size() == numberOfBalls) {
-					canEnter = false;
-				}
+		}
+
+		if (mouseIsClicked && canEnter && ballClock.getElapsedTime().asMilliseconds() > ballSpawningRate && listOfBalls.size() == numberOfBalls) {
+
+			std::list<Ball*>::iterator currentBall = listOfBalls.begin();
+
+			advance(currentBall, currentBallIndex);
+			(*currentBall)->Launch(direction);
+			Soundmanager->playShotSound();
+
+			ballTimer = ballClock.restart().asMilliseconds();
+
+			if (currentBallIndex == listOfBalls.size() - 1) {
+				currentBallIndex = 0;
+				canEnter = false;
 			}
-
-			else if (listOfBalls.size() == numberOfBalls) {
-
-				std::list<Ball*>::iterator currentBall = listOfBalls.begin();
-
-				advance(currentBall, currentBallIndex);
-				(*currentBall)->Launch(direction);
-
-				ballTimer = ballClock.restart().asMilliseconds();
-
-				if (currentBallIndex == listOfBalls.size() - 1) {
-					currentBallIndex = 0;
-					canEnter = false;
-				}
-				else currentBallIndex++;
-			}
-
+			else currentBallIndex++;
 		}
 		
 		// Checks the collision from every balls
@@ -126,6 +124,12 @@ void main() {
 			for (std::list<Brick*>::iterator it = listOfBricks.begin(); it != listOfBricks.end(); it++)
 			{
 				if ((*ballIt)->CheckCollisionWithEntity(*it) && (*it)->GetLife() > 0) {
+
+					Soundmanager->playExplosionSound();
+
+					if ((*it)->IsBonusBrick()) {
+						numberOfBalls++;
+					}
 
 					if ((*it)->TakeDamage() < 1) {
 
@@ -182,6 +186,7 @@ void main() {
 			}
 		}
 
+		
 		canon->DrawCanon(window);
 		window.draw(UiManager->getTextScore());
 
