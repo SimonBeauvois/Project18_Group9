@@ -29,8 +29,8 @@ void main() {
 	Canon* canon = new Canon("canon.png");
 
 	//std::list<Brick*> listOfBricks = SpawnerBricks::SpawningBricks(3, 50, 40, 100);
-	std::vector<std::vector<char>> arrayOfChara = { {'X','X','X'} , {'X','X','X'} , {'X','X','X'} };
-	std::list<Brick*> listOfBricks = SpawnerBricks::SpawningCustomBircks(arrayOfChara, 3, 3, 40);
+	std::vector<std::vector<int>> arrayOfChara = { {1,1,1,1,1,1} , {1,2,2,2,2,1} , {1,2,3,3,2,1} , {1,2,3,3,2,1}, {1,2,2,2,2,1}, {1,1,1,1,1,1} };
+	std::list<Brick*> listOfBricks = SpawnerBricks::SpawningCustomBircks(arrayOfChara, 6, 6, 10);
 	
 	while (window.isOpen()) {
 		

@@ -25,7 +25,7 @@ std::list<Brick*> SpawnerBricks::SpawningBricks(float nbLigne, float widthBrick,
         for (size_t i = 0; i < nbBrickLigne; i++)
         {
             Brick* currentBrick;
-            currentBrick = new Brick(widthBrick, heightbrick, 1, "brique_texture.jpg", "brique_texture2.jpg");
+            currentBrick = new Brick(widthBrick, heightbrick, 1);
 
             //Set le point de pivot et la position
             Utils::SetOrigin(0.5, 0.5, currentBrick->GetShape());
@@ -43,7 +43,7 @@ std::list<Brick*> SpawnerBricks::SpawningBricks(float nbLigne, float widthBrick,
     return listBricks;
 }
 
-std::list<Brick*> SpawnerBricks::SpawningCustomBircks(std::vector<std::vector<char>> arrayOfChara, int nbBricksLigne, int nbLigne, int espacement)
+std::list<Brick*> SpawnerBricks::SpawningCustomBircks(std::vector<std::vector<int>> arrayOfChara, int nbBricksLigne, int nbLigne, int espacement)
 {
     std::list<Brick*> listBricks;
 
@@ -56,12 +56,12 @@ std::list<Brick*> SpawnerBricks::SpawningCustomBircks(std::vector<std::vector<ch
     {
         for (int y = 0; y < arrayOfChara[i].size(); y++)
         {
-            if (arrayOfChara[i][y] == 'X') 
+            if (arrayOfChara[i][y] > 0) 
             {
                 //instancier une brique + lajouter a la liste de brique
 
                 Brick* currentBrick;
-                currentBrick = new Brick(largeurBrick, hauteurBrick, 2, "brique_texture.jpg", "brique_texture2.jpg");
+                currentBrick = new Brick(largeurBrick, hauteurBrick, arrayOfChara[i][y]);
 
                 //Set le point de pivot et la position
                 //Utils::SetOrigin(0.5, 0.5, currentBrick->GetShape());
@@ -69,10 +69,6 @@ std::list<Brick*> SpawnerBricks::SpawningCustomBircks(std::vector<std::vector<ch
 
                 //Ajoute la brique a la liste
                 listBricks.push_back(currentBrick);
-            }
-            else
-            {
-                //rien faire 
             }
             posSpawnX += espacement + largeurBrick;
         }

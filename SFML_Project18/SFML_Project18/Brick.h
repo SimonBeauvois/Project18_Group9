@@ -4,7 +4,7 @@
 class Brick : public Entity
 {
 public:
-	Brick(float width, float height, int life, std::string lienTexture, std::string lienTexture2);
+	Brick(float width, float height, int life);
 
 	~Brick();
 
@@ -21,7 +21,12 @@ private:
 
 	sf::Texture _texture;
 	sf::Texture _texture2;
+	sf::Texture _texture3;
 
-	int _life = 2;
+	std::string lienTexture = "brique_texture.jpg";
+	std::string lienTexture2 = "brique_texture2.jpg";
+	std::string lienTexture3 = "brique_texture3.jpg";
+
+	int _life;
 };
 
