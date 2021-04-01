@@ -14,6 +14,5 @@ private:
 
 	sf::Texture _texture;
 	sf::Sprite *_sprite;
-
 };
 

@@ -15,7 +15,6 @@ public:
 	void updateTexture();
 
 private:
-
 	float _width;
 	float _height;
 
@@ -23,9 +22,9 @@ private:
 	sf::Texture _texture2;
 	sf::Texture _texture3;
 
-	std::string lienTexture = "brique_texture.jpg";
-	std::string lienTexture2 = "brique_texture2.jpg";
-	std::string lienTexture3 = "brique_texture3.jpg";
+	std::string lienTexture = "brique_texture_alien.jpg";
+	std::string lienTexture2 = "brique_texture_alien2.jpg";
+	std::string lienTexture3 = "brique_texture_alien3.jpg";
 
 	int _life;
 };

@@ -6,6 +6,7 @@
 #include "Brick.h"
 #include "Canon.h"
 #include "SpawnerBricks.h"
+#include "TextureManager.h"
 #include <list>
 using namespace std;
 
@@ -20,6 +21,7 @@ void main() {
 	
 	bool mouseIsClicked = false;
 	
+	TextureManager::loadTexture();
 	
 	Ball* ball = new Ball(12);
 	ball->SetBall(sf::Vector2f(Utils::ScreenWidth() / 2, Utils::ScreenHeight()));
@@ -29,9 +31,23 @@ void main() {
 	Canon* canon = new Canon("canon.png");
 
 	//std::list<Brick*> listOfBricks = SpawnerBricks::SpawningBricks(3, 50, 40, 100);
-	std::vector<std::vector<int>> arrayOfChara = { {1,1,1,1,1,1} , {1,2,2,2,2,1} , {1,2,3,3,2,1} , {1,2,3,3,2,1}, {1,2,2,2,2,1}, {1,1,1,1,1,1} };
+	std::vector<std::vector<int>> arrayOfChara = 
+	{ 
+		{1,1,1,1,1,1} , 
+		{1,2,2,2,2,1} , 
+		{1,2,3,3,2,1} , 
+		{1,2,3,3,2,1}, 
+		{1,2,2,2,2,1}, 
+		{1,1,1,1,1,1} 
+	};
 	std::list<Brick*> listOfBricks = SpawnerBricks::SpawningCustomBircks(arrayOfChara, 6, 6, 10);
-	
+
+	sf::Sprite spriteFond;
+	spriteFond.setOrigin(sf::Vector2f(.5f * spriteFond.getGlobalBounds().width, .5f * spriteFond.getGlobalBounds().height));
+	spriteFond.setPosition(0, 0);
+	spriteFond.setScale(1.2, 1.2);
+	spriteFond.setTexture(TextureManager::_textureFond);
+
 	while (window.isOpen()) {
 		
 		float deltaTime = clock.restart().asSeconds();
@@ -49,7 +65,6 @@ void main() {
 
 				mouseIsClicked = true;
 				ball->Launch(direction);
-
 			}
 		}
 
@@ -63,7 +78,6 @@ void main() {
 
 					// Destroy the brick
 					listOfBricks.erase(it);
-					
 				}
 				break;
 			}
@@ -85,6 +99,7 @@ void main() {
 
 		window.clear();
 
+		window.draw(spriteFond);
 		ball->Draw(window);
 		canon->DrawCanon(window);
 
