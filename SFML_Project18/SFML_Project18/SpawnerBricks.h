@@ -9,5 +9,4 @@ public:
     static std::list<Brick*> SpawningBricks(float nbLigne, float widthBrick, float heightbrick, float espacement);
 
     static std::list<Brick*> SpawningCustomBircks(std::vector<std::vector<int>> arrayOfChara, int nbBricksLigne, int nbLigne, int espacement);
-    // static permet de ne pas instancier un classe pour utiliser ses fonctions.
 };

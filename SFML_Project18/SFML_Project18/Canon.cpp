@@ -10,7 +10,7 @@ Canon::Canon(std::string lienFichier)
 	
 	sf::Texture texture;
 
-	if (_texture.loadFromFile(lienFichier)) //si le lien est fonctionnel
+	if (_texture.loadFromFile(lienFichier)) //If the link is working
 	{
 		_texture.setSmooth(true);
 		_sprite = new sf::Sprite(_texture);
@@ -45,7 +45,6 @@ void Canon::DrawCanon(sf::RenderWindow& window)
 
 	else transform.rotate(rotateAngle, screenBottom);
 	 
-	//window.draw(*_sprite);
 	window.draw(*_sprite, transform);
 }
 

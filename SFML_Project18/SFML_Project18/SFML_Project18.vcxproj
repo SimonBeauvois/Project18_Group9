@@ -156,7 +156,6 @@
     <ClCompile Include="Canon.cpp" />
     <ClCompile Include="Entity.cpp" />
     <ClCompile Include="math.cpp" />
-    <ClCompile Include="Platform.cpp" />
     <ClCompile Include="SoundManager.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="SpawnerBricks.cpp" />
@@ -170,7 +169,6 @@
     <ClInclude Include="Canon.h" />
     <ClInclude Include="Entity.h" />
     <ClInclude Include="math.h" />
-    <ClInclude Include="Platform.h" />
     <ClInclude Include="SoundManager.h" />
     <ClInclude Include="SpawnerBricks.h" />
     <ClInclude Include="TextureManager.h" />

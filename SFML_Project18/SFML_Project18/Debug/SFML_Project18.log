@@ -1,38 +1,77 @@
-﻿  Source.cpp
-C:\COURS_MODULES\MODULE_14_C++\projet\Project18_Group9\SFML_Project18\SFML_Project18\Source.cpp(16,13): warning C4326: return type of 'main' should be 'int' instead of 'void'
-C:\COURS_MODULES\MODULE_14_C++\projet\Project18_Group9\SFML_Project18\SFML_Project18\Source.cpp(28,18): warning C4244: 'initializing': conversion from 'sf::Int32' to 'float', possible loss of data
-C:\COURS_MODULES\MODULE_14_C++\projet\Project18_Group9\SFML_Project18\SFML_Project18\Source.cpp(58,30): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\COURS_MODULES\MODULE_14_C++\projet\Project18_Group9\SFML_Project18\SFML_Project18\Source.cpp(83,100): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+﻿  Canon.cpp
+C:\Users\leika\Documents\GitHub\Project18_Group9\SFML_Project18\SFML_Project18\Canon.cpp(23,82): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
           with
           [
               T=float
           ]
-C:\COURS_MODULES\MODULE_14_C++\projet\Project18_Group9\SFML_Project18\SFML_Project18\Source.cpp(83,76): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+C:\Users\leika\Documents\GitHub\Project18_Group9\SFML_Project18\SFML_Project18\Canon.cpp(23,56): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
           with
           [
               T=float
           ]
-C:\COURS_MODULES\MODULE_14_C++\projet\Project18_Group9\SFML_Project18\SFML_Project18\Source.cpp(92,122): warning C4018: '<': signed/unsigned mismatch
-C:\COURS_MODULES\MODULE_14_C++\projet\Project18_Group9\SFML_Project18\SFML_Project18\Source.cpp(96,76): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+C:\Users\leika\Documents\GitHub\Project18_Group9\SFML_Project18\SFML_Project18\Canon.cpp(29,86): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
           with
           [
               T=float
           ]
-C:\COURS_MODULES\MODULE_14_C++\projet\Project18_Group9\SFML_Project18\SFML_Project18\Source.cpp(96,52): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+C:\Users\leika\Documents\GitHub\Project18_Group9\SFML_Project18\SFML_Project18\Canon.cpp(29,63): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
           with
           [
               T=float
           ]
-C:\COURS_MODULES\MODULE_14_C++\projet\Project18_Group9\SFML_Project18\SFML_Project18\Source.cpp(99,50): warning C4244: '=': conversion from 'sf::Int32' to 'float', possible loss of data
-C:\COURS_MODULES\MODULE_14_C++\projet\Project18_Group9\SFML_Project18\SFML_Project18\Source.cpp(112,50): warning C4244: '=': conversion from 'sf::Int32' to 'float', possible loss of data
-C:\COURS_MODULES\MODULE_14_C++\projet\Project18_Group9\SFML_Project18\SFML_Project18\Source.cpp(161,82): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+C:\Users\leika\Documents\GitHub\Project18_Group9\SFML_Project18\SFML_Project18\Canon.cpp(30,61): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
           with
           [
               T=float
           ]
-C:\COURS_MODULES\MODULE_14_C++\projet\Project18_Group9\SFML_Project18\SFML_Project18\Source.cpp(161,58): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+C:\Users\leika\Documents\GitHub\Project18_Group9\SFML_Project18\SFML_Project18\Canon.cpp(42,20): warning C4244: 'initialisation' : conversion de 'double' en 'float', perte possible de données
+  Source.cpp
+C:\Users\leika\Documents\GitHub\Project18_Group9\SFML_Project18\SFML_Project18\Source.cpp(15,13): warning C4326: le type de retour de 'main' doit être 'int' au lieu de 'void'
+C:\Users\leika\Documents\GitHub\Project18_Group9\SFML_Project18\SFML_Project18\Source.cpp(29,18): warning C4244: 'initialisation' : conversion de 'sf::Int32' en 'float', perte possible de données
+C:\Users\leika\Documents\GitHub\Project18_Group9\SFML_Project18\SFML_Project18\Source.cpp(60,30): warning C4305: 'argument' : troncation de 'double' à 'float'
+C:\Users\leika\Documents\GitHub\Project18_Group9\SFML_Project18\SFML_Project18\Source.cpp(87,100): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
           with
           [
               T=float
           ]
-  SFML_Project18.vcxproj -> C:\COURS_MODULES\MODULE_14_C++\projet\Project18_Group9\SFML_Project18\Debug\SFML_Project18.exe
+C:\Users\leika\Documents\GitHub\Project18_Group9\SFML_Project18\SFML_Project18\Source.cpp(87,76): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
+          with
+          [
+              T=float
+          ]
+C:\Users\leika\Documents\GitHub\Project18_Group9\SFML_Project18\SFML_Project18\Source.cpp(98,122): warning C4018: '<' : incompatibilité signed/unsigned
+C:\Users\leika\Documents\GitHub\Project18_Group9\SFML_Project18\SFML_Project18\Source.cpp(102,76): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
+          with
+          [
+              T=float
+          ]
+C:\Users\leika\Documents\GitHub\Project18_Group9\SFML_Project18\SFML_Project18\Source.cpp(102,52): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
+          with
+          [
+              T=float
+          ]
+C:\Users\leika\Documents\GitHub\Project18_Group9\SFML_Project18\SFML_Project18\Source.cpp(105,50): warning C4244: '=' : conversion de 'sf::Int32' en 'float', perte possible de données
+C:\Users\leika\Documents\GitHub\Project18_Group9\SFML_Project18\SFML_Project18\Source.cpp(118,50): warning C4244: '=' : conversion de 'sf::Int32' en 'float', perte possible de données
+C:\Users\leika\Documents\GitHub\Project18_Group9\SFML_Project18\SFML_Project18\Source.cpp(167,82): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
+          with
+          [
+              T=float
+          ]
+C:\Users\leika\Documents\GitHub\Project18_Group9\SFML_Project18\SFML_Project18\Source.cpp(167,58): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
+          with
+          [
+              T=float
+          ]
+  SpawnerBricks.cpp
+C:\Users\leika\Documents\GitHub\Project18_Group9\SFML_Project18\SFML_Project18\SpawnerBricks.cpp(13,22): warning C4244: 'initialisation' : conversion de 'float' en 'int', perte possible de données
+C:\Users\leika\Documents\GitHub\Project18_Group9\SFML_Project18\SFML_Project18\SpawnerBricks.cpp(25,30): warning C4018: '<' : incompatibilité signed/unsigned
+C:\Users\leika\Documents\GitHub\Project18_Group9\SFML_Project18\SFML_Project18\SpawnerBricks.cpp(50,24): warning C4244: 'initialisation' : conversion de 'int' en 'float', perte possible de données
+C:\Users\leika\Documents\GitHub\Project18_Group9\SFML_Project18\SFML_Project18\SpawnerBricks.cpp(51,24): warning C4244: 'initialisation' : conversion de 'int' en 'float', perte possible de données
+C:\Users\leika\Documents\GitHub\Project18_Group9\SFML_Project18\SFML_Project18\SpawnerBricks.cpp(52,21): warning C4244: 'initialisation' : conversion de 'int' en 'float', perte possible de données
+C:\Users\leika\Documents\GitHub\Project18_Group9\SFML_Project18\SFML_Project18\SpawnerBricks.cpp(53,21): warning C4244: 'initialisation' : conversion de 'int' en 'float', perte possible de données
+C:\Users\leika\Documents\GitHub\Project18_Group9\SFML_Project18\SFML_Project18\SpawnerBricks.cpp(55,23): warning C4018: '<' : incompatibilité signed/unsigned
+C:\Users\leika\Documents\GitHub\Project18_Group9\SFML_Project18\SFML_Project18\SpawnerBricks.cpp(57,27): warning C4018: '<' : incompatibilité signed/unsigned
+C:\Users\leika\Documents\GitHub\Project18_Group9\SFML_Project18\SFML_Project18\SpawnerBricks.cpp(89,21): warning C4244: '=' : conversion de 'int' en 'float', perte possible de données
+C:\Users\leika\Documents\GitHub\Project18_Group9\SFML_Project18\SFML_Project18\SpawnerBricks.cpp(92,17): warning C4244: '=' : conversion de 'int' en 'float', perte possible de données
+  Génération de code en cours...
+  SFML_Project18.vcxproj -> C:\Users\leika\Documents\GitHub\Project18_Group9\SFML_Project18\Debug\SFML_Project18.exe
